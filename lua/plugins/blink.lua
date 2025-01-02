@@ -166,8 +166,7 @@ return {
 		-- https://cmp.saghen.dev/configuration/keymap.html#default
 		opts.keymap = {
 			preset = "default",
-			["<Tab>"] = { "accept", "fallback" },
-			["<S-Tab>"] = { "snippet_backward", "fallback" },
+			["<S-Tab>"] = { "accept", "fallback" },
 
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },

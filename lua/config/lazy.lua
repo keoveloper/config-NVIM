@@ -25,6 +25,9 @@ require("lazy").setup({
 				},
 			},
 		},
+		{
+			"github/copilot.vim",
+		},
 		-- import any extras modules here
 		{
 			"L3MON4D3/LuaSnip",
