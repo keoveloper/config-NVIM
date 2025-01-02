@@ -18,7 +18,7 @@ return {
 		-- Merge custom sources with the existing ones from lazyvim
 		-- NOTE: by default lazyvim already includes the lazydev source, so not adding it here again
 		opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
-			default = { "lsp", "path", "snippets", "buffer", "copilot", "luasnip", "dadbod" },
+			default = { "lsp", "path", "snippets", "buffer", "luasnip", "dadbod" },
 			providers = {
 				lsp = {
 					name = "lsp",
@@ -116,16 +116,16 @@ return {
 					module = "vim_dadbod_completion.blink",
 					score_offset = 85, -- the higher the number, the higher the priority
 				},
-				-- Third class citizen mf always talking shit
-				copilot = {
-					name = "copilot",
-					enabled = true,
-					module = "blink-cmp-copilot",
-					kind = "Copilot",
-					min_keyword_length = 6,
-					score_offset = -100, -- the higher the number, the higher the priority
-					async = true,
-				},
+				-- -- Third class citizen mf always talking shit
+				-- copilot = {
+				-- 	name = "copilot",
+				-- 	enabled = true,
+				-- 	module = "blink-cmp-copilot",
+				-- 	kind = "Copilot",
+				-- 	min_keyword_length = 6,
+				-- 	score_offset = -100, -- the higher the number, the higher the priority
+				-- 	async = true,
+				-- },
 			},
 			-- command line completion, thanks to dpetka2001 in reddit
 			-- https://www.reddit.com/r/neovim/comments/1hjjf21/comment/m37fe4d/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
@@ -144,27 +144,6 @@ return {
 		-- This comes from the luasnip extra, if you don't add it, won't be able to
 		-- jump forward or backward in luasnip snippets
 		-- https://www.lazyvim.org/extras/coding/luasnip#blinkcmp-optional
-		opts.completion = {
-			accept = {
-				-- experimental auto-brackets support
-				auto_brackets = {
-					enabled = true,
-				},
-			},
-			menu = {
-				draw = {
-					treesitter = { "lsp" },
-				},
-			},
-			documentation = {
-				auto_show = true,
-				auto_show_delay_ms = 200,
-			},
-			ghost_text = {
-				enabled = vim.g.ai_cmp,
-			},
-		}
-
 		opts.snippets = {
 			expand = function(snippet)
 				require("luasnip").lsp_expand(snippet)
@@ -188,12 +167,12 @@ return {
 		opts.keymap = {
 			preset = "default",
 			["<Tab>"] = { "accept", "fallback" },
-			-- ["<S-Tab>"] = { "snippet_backward", "fallback" },
+			["<S-Tab>"] = { "snippet_backward", "fallback" },
 
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
-			-- ["<C-p>"] = { "select_prev", "fallback" },
-			-- ["<C-n>"] = { "select_next", "fallback" },
+			["<C-p>"] = { "select_prev", "fallback" },
+			["<C-n>"] = { "select_next", "fallback" },
 
 			["<C-b>"] = { "scroll_documentation_up", "fallback" },
 			["<C-f>"] = { "scroll_documentation_down", "fallback" },
