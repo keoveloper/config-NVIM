@@ -41,8 +41,9 @@ keymap.set("n", "<C-m>", "<C-i>", opts)
 
 -- New tab
 keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<S-Tab>", ":tabnext<Return>", opts)
--- keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+keymap.set("n", "<Tab>", ":tabnext<Return>", opts)
+keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+
 -- Split window
 keymap.set("n", "sv", ":split<Return>", opts)
 keymap.set("n", "ss", ":vsplit<Return>", opts)
@@ -67,6 +68,13 @@ keymap.set("i", "<C-l>", "<C-o>dw", opts) -- Borrar palabra hacia adelante
 keymap.set("n", "<C-j>", function()
 	vim.diagnostic.goto_next()
 end, opts)
+
+-- Mode insert
+keymap.set("i", "<C-j>", "<Esc>o<Esc>gi", opts) -- Insertar un renglón abajo y volver
+keymap.set("i", "<C-k>", "<Esc>O<Esc>gi", opts) -- Insertar un renglón arriba y volver
+
+-- Ejecutar el programa actual con Code Runner en modo insert
+keymap.set("i", "<C-r>", "<Esc>:w<CR>:RunCode<CR>a", opts) -- Guarda y ejecuta el archivo actual
 
 -- keymap.set("n", "<leader>r", function()
 -- 	require("craftzdog.hsl").replaceHexWithHSL()
