@@ -47,6 +47,8 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
+keymap.set("n", "<A-z>", ":set wrap!<CR>", { noremap = true, silent = true })
+
 --============================== Mode insert =============================
 
 -- Delete word before
@@ -55,10 +57,10 @@ keymap.set("i", "<C-h>", "<C-o>db", opts)
 keymap.set("i", "<C-l>", "<C-o>dw", opts)
 
 -- Insertar un renglón abajo y volver
-keymap.set("i", "<C-j>", "<Esc>o<Esc>gi", opts)
+keymap.set("i", "<C-j>", "<Esc>o", opts)
 
 -- Insertar un renglón arriba y volver
-keymap.set("i", "<C-k>", "<Esc>O<Esc>gi", opts)
+keymap.set("i", "<C-k>", "<Esc>O", opts)
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
