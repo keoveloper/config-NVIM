@@ -46,7 +46,6 @@ keymap.set("n", "<C-w><left>", "<C-w><")
 keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
-
 keymap.set("n", "<A-z>", ":set wrap!<CR>", { noremap = true, silent = true })
 
 --============================== Mode insert =============================
@@ -72,10 +71,11 @@ keymap.set("i", "<C-r>", "<Esc>:w<CR>:RunCode<CR>a", opts) --
 --==========================================================
 
 --=disable the default keymaps for the LSP=
-keymap.set("n", "a", "<Nop>", opts) --     =
-keymap.set("n", "e", "<Nop>", opts) --     =
-keymap.set("n", "s", "<Nop>", opts) --     =
-keymap.set("n", "f", "<Nop>", opts) --     =
-keymap.set("n", ".", "<Nop>", opts) --     =
-keymap.set("n", ",", "<Nop>", opts) --     =
+
+-- keymap.set("n", "a", "<Nop>", opts) --     =
+-- keymap.set("n", "e", "<Nop>", opts) --     =
+-- keymap.set("n", "s", "<Nop>", opts) --     =
+-- keymap.set("n", "f", "<Nop>", opts) --     =
+-- keymap.set("n", ".", "<Nop>", opts) --     =
+-- keymap.set("n", ",", "<Nop>", opts) --     =
 --==========================================
