@@ -30,7 +30,6 @@ keymap.set("n", "<C-m>", "<C-i>", opts)
 -- New tab
 keymap.set("n", "te", ":tabedit")
 keymap.set("n", "<Tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 
 -- Split window
 keymap.set("n", "sv", ":split<Return>", opts)
@@ -41,12 +40,12 @@ keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
 
--- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
-keymap.set("n", "<A-z>", ":set wrap!<CR>", { noremap = true, silent = true })
+-- Resize window (not working right)
+-- keymap.set("n", "<C><left>", "<C-w><")
+-- keymap.set("n", "<C><right>", "<C-w>>")
+-- keymap.set("n", "<C><up>", "<C-w>+")
+-- keymap.set("n", "<C><down>", "<C-w>-")
+keymap.set("n", "<C-z>", ":set wrap!<CR>", { noremap = true, silent = true })
 
 --============================== Mode insert =============================
 

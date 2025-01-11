@@ -88,8 +88,8 @@ require("lazy").setup({
 		},
 	},
 	ui = {
-		customeys = {
-			["<leader>d"] = function(plugin)
+		custom_keys = {
+			["<localleader>d"] = function(plugin)
 				dd(plugin)
 			end,
 		},

@@ -1,9 +1,3 @@
--- https://github.com/okuuva/auto-save.nvim
---
--- This is a fork of original plugin `https://github.com/pocco81/auto-save.nvim`
--- but the original one was updated 2 years ago, and I was experiencing issues
--- with autoformat and undo/redo
---
 -- Filename: ~/github/dotfiles-latest/neovim/neobean/lua/plugins/auto-save.lua
 -- ~/github/dotfiles-latest/neovim/neobean/lua/plugins/auto-save.lua
 
@@ -20,6 +14,8 @@ vim.api.nvim_create_autocmd("User", {
 		if opts.data.saved_buffer ~= nil then
 			-- print("AutoSaved at " .. vim.fn.strftime("%H:%M:%S"))
 			print("AutoSaved")
+			-- vim.cmd('echo "✅"')
+			-- vim.notify("Auto Saved", vim.log.levels.INFO, { title = "Auto Save" })
 		end
 	end,
 })
