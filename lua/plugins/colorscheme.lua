@@ -1,45 +1,82 @@
 return {
-	{
-		"scottmckendry/cyberdream.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = function(_, opts)
-			opts.transparent = true
-			opts.italic_comments = true
-			opts.borderless_telescope = false
-		end,
-	},
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "cyberdream",
-		},
-	},
+	"folke/tokyonight.nvim",
+	priority = 1000,
+	config = function()
+		local transparent = true -- set to true if you would like to enable transparency
 
-	-- modicator (auto color line number based on vim mode)
-	{
-		"mawkler/modicator.nvim",
-		dependencies = "scottmckendry/cyberdream.nvim",
-		init = function()
-			-- These are required for Modicator to work
-			vim.o.cursorline = false
-			vim.o.number = true
-			vim.o.termguicolors = true
-		end,
-		opts = {},
-	},
+		local bg = "#011628"
+		local bg_dark = "#011423"
+		local bg_highlight = "#143652"
+		local bg_search = "#0A64AC"
+		-- local bg_visual = "#275378"
+		local bg_visual = "#2218c5"
+		local fg = "#CBE0F0"
+		local fg_dark = "#B4D0E9"
+		local fg_gutter = "#627E97"
+		local border = "#547998"
+
+		require("tokyonight").setup({
+			style = "night",
+			transparent = transparent,
+			styles = {
+				sidebars = transparent and "transparent" or "dark",
+				floats = transparent and "transparent" or "dark",
+			},
+			on_colors = function(colors)
+				colors.bg = bg
+				colors.bg_dark = transparent and colors.none or bg_dark
+				colors.bg_float = transparent and colors.none or bg_dark
+				colors.bg_highlight = bg_highlight
+				colors.bg_popup = bg_dark
+				colors.bg_search = bg_search
+				colors.bg_sidebar = transparent and colors.none or bg_dark
+				colors.bg_statusline = transparent and colors.none or bg_dark
+				colors.bg_visual = bg_visual
+				colors.border = border
+				colors.fg = fg
+				colors.fg_dark = fg_dark
+				colors.fg_float = fg
+				-- colors.fg_gutter = fg_gutter
+				colors.fg_sidebar = fg_dark
+			end,
+		})
+
+		vim.cmd("colorscheme tokyonight")
+	end,
 }
-
+--
 -- return {
 -- 	{
--- 		"folke/tokyonight.nvim",
+-- 		"scottmckendry/cyberdream.nvim",
 -- 		lazy = false,
 -- 		priority = 1000,
+-- 		opts = function(_, opts)
+-- 			opts.transparent = true
+-- 			opts.italic_comments = true
+-- 			opts.borderless_telescope = false
+-- 		end,
+-- 	},
+-- 	{
+-- 		"LazyVim/LazyVim",
+-- 		opts = {
+-- 			colorscheme = "cyberdream",
+-- 		},
+-- 	},
+--
+-- 	-- modicator (auto color line number based on vim mode)
+-- 	{
+-- 		"mawkler/modicator.nvim",
+-- 		dependencies = "scottmckendry/cyberdream.nvim",
+-- 		init = function()
+-- 			-- These are required for Modicator to work
+-- 			vim.o.cursorline = true
+-- 			vim.o.number = true
+-- 			vim.o.termguicolors = true
+-- 		end,
 -- 		opts = {},
--- 		vim.cmd.colorscheme("tokyonight"),
 -- 	},
 -- }
-
+--
 -- return {
 -- 	{
 -- 		"sainnhe/sonokai",
@@ -49,19 +86,6 @@ return {
 -- 			vim.g.sonokai_enable_italic = "1"
 -- 			vim.g.sonokai_style = "andromeda"
 -- 			vim.cmd.colorscheme("sonokai")
--- 		end,
--- 	},
--- }
-
--- return {
--- 	{
--- 		"craftzdog/solarized-osaka.nvim",
--- 		lazy = true,
--- 		priority = 1000,
--- 		opts = function()
--- 			return {
--- 				transparent = true,
--- 			}
 -- 		end,
 -- 	},
 -- }
