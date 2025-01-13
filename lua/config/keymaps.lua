@@ -11,7 +11,8 @@ keymap.set("n", "x", '"_x')
 -- Increment/decrement
 -- keymap.set("n", "+", "<C-a>")
 -- keymap.set("n", "-", "<C-x>")
-
+keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+keymap.set("i", "vv", "<ESC>v", { desc = "Exit insert mode with vv and in visual mode" })
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
