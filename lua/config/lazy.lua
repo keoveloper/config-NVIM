@@ -25,9 +25,10 @@ require("lazy").setup({
 				},
 			},
 		},
-		{
-			"github/copilot.vim",
-		},
+		-- {
+		-- 	"github/copilot.vim",
+		-- },
+		-- { "mg979/vim-visual-multi" },
 		-- import any extras modules here
 		{
 			"L3MON4D3/LuaSnip",
