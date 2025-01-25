@@ -25,11 +25,12 @@ require("lazy").setup({
 				},
 			},
 		},
-		-- {
-		-- 	"github/copilot.vim",
-		-- },
-		-- { "mg979/vim-visual-multi" },
-		-- import any extras modules here
+		{
+			"windwp/nvim-ts-autotag",
+		},
+		{
+			"github/copilot.vim",
+		},
 		{
 			"L3MON4D3/LuaSnip",
 			lazy = true, -- Carga bajo demanda
