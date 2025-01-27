@@ -32,6 +32,12 @@ require("lazy").setup({
 			"github/copilot.vim",
 		},
 		{
+			"nvzone/typr",
+			dependencies = "nvzone/volt",
+			opts = {},
+			cmd = { "Typr", "TyprStats" },
+		},
+		{
 			"L3MON4D3/LuaSnip",
 			lazy = true, -- Carga bajo demanda
 			config = function()
