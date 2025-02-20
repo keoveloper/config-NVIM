@@ -26,6 +26,20 @@ return {
 		"Kaiser-Yang/blink-cmp-dictionary",
 	},
 	opts = function(_, opts)
+		-- I noticed that telescope was extremeley slow and taking too long to open,
+		-- assumed related to blink, so disabled blink and in fact it was related
+		-- :lua print(vim.bo[0].filetype)
+		-- So I'm disabling blink.cmp for Telescope
+		opts.enabled = function()
+			-- Get the current buffer's filetype
+			local filetype = vim.bo[0].filetype
+			-- Disable for Telescope buffers
+			if filetype == "TelescopePrompt" or filetype == "minifiles" or filetype == "snacks_picker_input" then
+				return false
+			end
+			return true
+		end
+
 		-- NOTE: The new way to enable LuaSnip
 		-- Merge custom sources with the existing ones from lazyvim
 		-- NOTE: by default lazyvim already includes the lazydev source, so not adding it here again
@@ -37,6 +51,7 @@ return {
 					enabled = true,
 					module = "blink.cmp.sources.lsp",
 					kind = "LSP",
+					min_keyword_length = 2,
 					-- When linking markdown notes, I would get snippets and text in the
 					-- suggestions, I want those to show only if there are no LSP
 					-- suggestions
@@ -55,6 +70,7 @@ return {
 					-- suggestions, I want those to show only if there are no path
 					-- suggestions
 					fallbacks = { "snippets", "buffer" },
+					min_keyword_length = 2,
 					opts = {
 						trailing_slash = false,
 						label_trailing_slash = true,
@@ -75,7 +91,7 @@ return {
 				snippets = {
 					name = "snippets",
 					enabled = true,
-					max_items = 8,
+					max_items = 15,
 					min_keyword_length = 2,
 					module = "blink.cmp.sources.snippets",
 					score_offset = 85, -- the higher the number, the higher the priority
@@ -118,13 +134,15 @@ return {
 				dadbod = {
 					name = "Dadbod",
 					module = "vim_dadbod_completion.blink",
+					min_keyword_length = 2,
 					score_offset = 85, -- the higher the number, the higher the priority
 				},
 				-- https://github.com/moyiz/blink-emoji.nvim
 				emoji = {
 					module = "blink-emoji",
 					name = "Emoji",
-					score_offset = 15, -- the higher the number, the higher the priority
+					score_offset = 93, -- the higher the number, the higher the priority
+					min_keyword_length = 2,
 					opts = { insert = true }, -- Insert emoji (default) or complete its name
 				},
 				-- https://github.com/Kaiser-Yang/blink-cmp-dictionary
@@ -149,7 +167,13 @@ return {
 						-- Do not specify a file, just the path, and in the path you need to
 						-- have your .txt files
 						dictionary_directories = { vim.fn.expand("~/github/dotfiles-latest/dictionaries") },
+						-- Notice I'm also adding the words I add to the spell dictionary
+						dictionary_files = {
+							vim.fn.expand("~/github/dotfiles-latest/neovim/neobean/spell/en.utf-8.add"),
+							vim.fn.expand("~/github/dotfiles-latest/neovim/neobean/spell/es.utf-8.add"),
+						},
 						-- --  NOTE: To disable the definitions uncomment this section below
+						--
 						-- separate_output = function(output)
 						--   local items = {}
 						--   for line in output:gmatch("[^\r\n]+") do
@@ -165,18 +189,21 @@ return {
 				},
 				-- Third class citizen mf always talking shit
 				-- copilot = {
-				--   name = "copilot",
-				--   enabled = true,
-				--   module = "blink-cmp-copilot",
-				--   kind = "Copilot",
-				--   min_keyword_length = 6,
-				--   score_offset = -100, -- the higher the number, the higher the priority
-				--   async = true,
+				-- 	name = "copilot",
+				-- 	enabled = true,
+				-- 	module = "blink-cmp-copilot",
+				-- 	kind = "Copilot",
+				-- 	min_keyword_length = 6,
+				-- 	score_offset = -100, -- the higher the number, the higher the priority
+				-- 	async = true,
 				-- },
 			},
+		})
+
+		opts.cmdline = {
 			-- command line completion, thanks to dpetka2001 in reddit
 			-- https://www.reddit.com/r/neovim/comments/1hjjf21/comment/m37fe4d/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-			cmdline = function()
+			sources = function()
 				local type = vim.fn.getcmdtype()
 				if type == "/" or type == "?" then
 					return { "buffer" }
@@ -186,7 +213,7 @@ return {
 				end
 				return {}
 			end,
-		})
+		}
 
 		opts.completion = {
 			--   keyword = {
@@ -237,6 +264,12 @@ return {
 				require("luasnip").jump(direction)
 			end,
 		}
+
+		-- The default preset used by lazyvim accepts completions with enter
+		-- I don't like using enter because if on markdown and typing
+		-- something, but you want to go to the line below, if you press enter,
+		-- the completion will be accepted
+		-- https://cmp.saghen.dev/configuration/keymap.html#default
 		opts.keymap = {
 			preset = "default",
 			["<S-Tab>"] = { "accept", "fallback" },
