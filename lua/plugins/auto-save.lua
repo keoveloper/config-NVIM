@@ -12,10 +12,7 @@ vim.api.nvim_create_autocmd("User", {
 	group = group,
 	callback = function(opts)
 		if opts.data.saved_buffer ~= nil then
-			-- print("AutoSaved at " .. vim.fn.strftime("%H:%M:%S"))
 			print("AutoSaved")
-			-- vim.cmd('echo "✅"')
-			-- vim.notify("Auto Saved", vim.log.levels.INFO, { title = "Auto Save" })
 		end
 	end,
 })

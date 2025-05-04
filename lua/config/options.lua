@@ -31,11 +31,6 @@ vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.opt.undofile = true -- Desactiva el historial persistente de deshacer
--- vim.opt.mouse = ""
-
--- Undercurl
--- vim.cmd([[let &t_Cs = "\e[4:3m"]])
--- vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })

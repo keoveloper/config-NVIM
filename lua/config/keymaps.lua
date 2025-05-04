@@ -5,19 +5,10 @@ local opts = { noremap = true, silent = true }
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
 
--- File explorer right
--- keymap.set("n", "<Leader>e", ":Neotree filesystem reveal right toggle<CR>")
-
--- Increment/decrement
--- keymap.set("n", "+", "<C-a>")
--- keymap.set("n", "-", "<C-x>")
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("i", "vv", "<ESC>v", { desc = "Exit insert mode with vv and in visual mode" })
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
-
--- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
 keymap.set("n", "<Leader>q", ":quit<Return>", opts)
 
@@ -41,12 +32,8 @@ keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
 
--- Resize window (not working right)
--- keymap.set("n", "<C><left>", "<C-w><")
--- keymap.set("n", "<C><right>", "<C-w>>")
--- keymap.set("n", "<C><up>", "<C-w>+")
--- keymap.set("n", "<C><down>", "<C-w>-")
 keymap.set("n", "<C-z>", ":set wrap!<CR>", { noremap = true, silent = true })
+keymap.set("n", "<Leader>rr", ":Rest run<CR>", { noremap = true, silent = true })
 
 --============================== Mode insert =============================
 
@@ -58,9 +45,6 @@ keymap.set("i", "<C-l>", "<C-o>dw", opts)
 -- Insertar un renglón abajo y volver
 keymap.set("i", "<C-j>", "<Esc>o", opts)
 
--- Insertar un renglón arriba y volver
-keymap.set("i", "<C-k>", "<Esc>O", opts)
-
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
 	vim.diagnostic.goto_next()
@@ -68,14 +52,3 @@ end, opts)
 
 --======= save and run code (need RunCode plugin) ==========
 keymap.set("i", "<C-r>", "<Esc>:w<CR>:RunCode<CR>a", opts) --
---==========================================================
-
---=disable the default keymaps for the LSP=
-
--- keymap.set("n", "a", "<Nop>", opts) --     =
--- keymap.set("n", "e", "<Nop>", opts) --     =
--- keymap.set("n", "s", "<Nop>", opts) --     =
--- keymap.set("n", "f", "<Nop>", opts) --     =
--- keymap.set("n", ".", "<Nop>", opts) --     =
--- keymap.set("n", ",", "<Nop>", opts) --     =
---==========================================

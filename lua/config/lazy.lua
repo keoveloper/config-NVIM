@@ -18,7 +18,6 @@ require("lazy").setup({
 			"LazyVim/LazyVim",
 			import = "lazyvim.plugins",
 			opts = {
-				--colorscheme = "solarized-osaka",
 				news = {
 					lazyvim = true,
 					neovim = true,
@@ -26,7 +25,23 @@ require("lazy").setup({
 			},
 		},
 		{
+			"rest-nvim/rest.nvim",
+			dependencies = {
+				"nvim-treesitter/nvim-treesitter",
+				opts = function(_, opts)
+					opts.ensure_installed = opts.ensure_installed or {}
+					table.insert(opts.ensure_installed, "http")
+				end,
+			},
+		},
+		{
+			"mattn/emmet-vim",
+			ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+		},
+
+		{
 			"windwp/nvim-ts-autotag",
+			event = "InsertEnter",
 		},
 		{
 			"github/copilot.vim",
@@ -49,13 +64,13 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
 		{ import = "lazyvim.plugins.extras.lang.json" },
-		-- { import = "lazyvim.plugins.extras.lang.markdown" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
+		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 		-- { import = "lazyvim.plugins.extras.ai.copilot" },
+		-- { import = "lazyvim.plugins.extras.lang.markdown" },
 		-- { import = "lazyvim.plugins.extras.dap.core" },
 		-- { import = "lazyvim.plugins.extras.vscode" },
-		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 		-- { import = "lazyvim.plugins.extras.test.core" },
 		-- { import = "lazyvim.plugins.extras.coding.yanky" },
 		-- { import = "lazyvim.plugins.extras.editor.mini-files" },
