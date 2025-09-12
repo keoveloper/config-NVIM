@@ -1,3 +1,4 @@
+<img width="1894" height="971" alt="image" src="https://github.com/user-attachments/assets/12db6d07-c9b8-4a6e-91a1-d24c2a7b9770" />
 # My Neovim Configuration
 
 This is my personal Neovim configuration. It's tailored to my workflow and preferences.
