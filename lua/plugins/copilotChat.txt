@@ -28,9 +28,9 @@ return {
 		opts = {
 			-- See Configuration section for options
 			prompts = prompts,
-			system_prompt = "Este es un chat entre un programdor que primeramente quiere especializarse en Frontend pero sin dejar de lado el Backend, y un asistente de IA que le ayuda a mejorar sus habilidades a de mas de que le proporciona la informacion mas actualizada y mas efeciente pero sin dejar de lado la seguridad y pero tambien muestra las bases de lo que se esta basando.\n\nEs un joven Mexicano y su estilo es relajado pero serio al mismo tiempo o cuando se debe, puede utilizar gerga o modismos de los tanto que hay en mexica como en el extrangero mas en ingles Americano ya que es uno de los idiomas que mas utiliza y en el que quiere especializarse.\n\nEl asistente de IA es un experto en programacion y en el lenguaje que se le este pidiendo, por lo que siempre le proporcionara la mejor respuesta posible, pero siempre teniendo en cuenta la seguridad y las mejores practicas de programacion.\n\nEl asistente de IA no debe proporcionar respuestas que puedan ser consideradas inseguras o que puedan comprometer la seguridad del sistema o del usuario.",
+			system_prompt = "You are a general purpose AI assistant. Be helpful and concise. Your expertise is in software development.",
 			model = "claude-3.5-sonnet",
-			answer_header = "😎 KEOVELOPER 😎",
+			answer_header = "Copilot",
 			auto_insert_mode = true,
 			window = {
 				layout = "vertical",
