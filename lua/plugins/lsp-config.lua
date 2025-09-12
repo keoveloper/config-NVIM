@@ -39,5 +39,24 @@ return {
 				},
 			},
 		},
+		tailwindcss = {
+			filetypes = {
+				"html",
+				"css",
+				"scss",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"svelte",
+				"vue",
+				"tsx",
+			},
+			settings = {
+				tailwindCSS = {
+					classAttributes = { "class", "className", "ngClass" },
+				},
+			},
+		},
 	},
 }

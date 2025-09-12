@@ -168,6 +168,7 @@ THE REAL COCK
 					-- Snacks.toggle.inlay_hints():map("<leader>uh")
 					Snacks.toggle.indent():map("<leader>ug")
 					Snacks.toggle.dim():map("<leader>uD")
+					Snacks.toggle.zen():map("<leader>oo")
 
 					-- vim.keymap.set("n", "<leader>ff", function()
 					-- 	require("snacks").picker.smart({ multi = { "buffers", "files" } })
