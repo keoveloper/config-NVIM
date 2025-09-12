@@ -22,7 +22,7 @@ This is my personal Neovim configuration. It's tailored to my workflow and prefe
 ## Keymaps
 
 *   `<leader>` is mapped to the spacebar.
-*   ... (add your most important keymaps here)
+You can see all keymaps with :map
 
 ## Warning
 
