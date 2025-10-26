@@ -9,7 +9,9 @@ vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.hlsearch = true
-vim.opt.backup = false
+vim.opt.backup = true
+vim.opt.writebackup = true
+vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
 vim.opt.showcmd = false
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
@@ -31,6 +33,11 @@ vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.opt.undofile = true -- Desactiva el historial persistente de deshacer
+vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
+
+-- Tener swapfiles activos (te avisan si abriste el archivo en otra parte)
+vim.opt.swapfile = true
+vim.opt.directory = vim.fn.stdpath("state") .. "/swap"
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })

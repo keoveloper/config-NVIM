@@ -54,7 +54,10 @@ return {
 			})
 		end,
 	},
-
+	-- {
+	-- 	"OmniSharp/omnisharp-vim",
+	-- 	build = "cd server && xbuild",
+	-- },
 	-- Better increase/descrease
 	{
 		"monaqa/dial.nvim",

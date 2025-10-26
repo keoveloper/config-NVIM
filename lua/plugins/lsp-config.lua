@@ -1,4 +1,3 @@
--- ~/github/dotfiles-latest/neovim/neobean/lua/plugins/nvim-lspconfig.lua
 -- Filename: ~/github/dotfiles-latest/neovim/neobean/lua/plugins/nvim-lspconfig.lua
 --
 -- https://github.com/neovim/nvim-lspconfig
@@ -38,25 +37,7 @@ return {
 					},
 				},
 			},
+			csharp_ls = {},
 		},
-		-- tailwindcss = {
-		-- 	filetypes = {
-		-- 		"html",
-		-- 		"css",
-		-- 		"scss",
-		-- 		"javascript",
-		-- 		"javascriptreact",
-		-- 		"typescript",
-		-- 		"typescriptreact",
-		-- 		"svelte",
-		-- 		"vue",
-		-- 		"tsx",
-		-- 	},
-		-- 	settings = {
-		-- 		tailwindCSS = {
-		-- 			classAttributes = { "class", "className", "ngClass" },
-		-- 		},
-		-- 	},
-		-- },
 	},
 }
