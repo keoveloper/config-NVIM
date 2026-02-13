@@ -52,3 +52,4 @@ end, opts)
 
 --======= save and run code (need RunCode plugin) ==========
 keymap.set("i", "<C-r>", "<Esc>:w<CR>:RunCode<CR>a", opts) --
+keymap.set("n", "<C-r>", "<Esc>:w<CR>:RunCode<CR>a", opts) --
