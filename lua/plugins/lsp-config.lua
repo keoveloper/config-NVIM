@@ -22,7 +22,7 @@ return {
 				filetypes = { "markdown" },
 				settings = {
 					["harper-ls"] = {
-						userDictPath = "~/github/dotfiles-latest/neovim/neobean/spell/en.utf-8.add",
+						userDictPath = "~/.config/nvim/spell/en.utf-8.add",
 						linters = {
 							ToDoHyphen = false,
 							-- SentenceCapitalization = true,

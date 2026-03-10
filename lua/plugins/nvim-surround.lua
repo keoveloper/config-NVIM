@@ -1,22 +1,16 @@
 return {
 	"kylechui/nvim-surround",
-	version = "*", -- Use for stability; omit to use `main` branch for the latest features
+	version = "*",
 	event = "VeryLazy",
+	init = function()
+		-- v4: keymaps are now controlled via global variables, not setup()
+		vim.g.nvim_surround_no_mappings = true
+	end,
 	config = function()
-		require("nvim-surround").setup({
-			-- Configuration here, or leave empty to use defaults
-			keymaps = {
-				insert = false, -- Desactiva <C-g>s
-				insert_line = false, -- Desactiva <C-g>S
-				normal = false, -- Mantiene `ys` en modo normal
-				normal_line = false, -- Desactiva `yss`
-				normal_cur = false, -- Desactiva `yss`
-				normal_cur_line = false,
-				visual = "s", -- Desactiva `S` en modo visual
-				visual_line = false, -- Desactiva `gS` en modo visual
-				delete = "ds", -- Mantiene `ds` para borrar delimitadores
-				change = "cs", -- Mantiene `cs` para cambiar delimitadores
-			},
-		})
+		require("nvim-surround").setup()
+		-- Custom keymaps via <Plug> values (v4 API)
+		vim.keymap.set("n", "ds", "<Plug>(nvim-surround-delete)", { desc = "Delete surrounding pair" })
+		vim.keymap.set("n", "cs", "<Plug>(nvim-surround-change)", { desc = "Change surrounding pair" })
+		vim.keymap.set("x", "s", "<Plug>(nvim-surround-visual)", { desc = "Add surrounding pair (visual)" })
 	end,
 }

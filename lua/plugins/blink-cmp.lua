@@ -23,7 +23,6 @@ return {
 	-- version = "v0.9.3",
 	dependencies = {
 		"moyiz/blink-emoji.nvim",
-		"Kaiser-Yang/blink-cmp-dictionary",
 	},
 	opts = function(_, opts)
 		-- I noticed that telescope was extremeley slow and taking too long to open,
@@ -44,7 +43,7 @@ return {
 		-- Merge custom sources with the existing ones from lazyvim
 		-- NOTE: by default lazyvim already includes the lazydev source, so not adding it here again
 		opts.sources = vim.tbl_deep_extend("force", opts.sources or {}, {
-			default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji", "dictionary" },
+			default = { "lsp", "path", "snippets", "buffer", "dadbod", "emoji" },
 			providers = {
 				lsp = {
 					name = "lsp",
@@ -144,48 +143,6 @@ return {
 					score_offset = 93, -- the higher the number, the higher the priority
 					min_keyword_length = 2,
 					opts = { insert = true }, -- Insert emoji (default) or complete its name
-				},
-				-- https://github.com/Kaiser-Yang/blink-cmp-dictionary
-				-- In macOS to get started with a dictionary:
-				-- cp /usr/share/dict/words ~/github/dotfiles-latest/dictionaries/words.txt
-				--
-				-- NOTE: For the word definitions make sure "wn" is installed
-				-- brew install wordnet
-				dictionary = {
-					module = "blink-cmp-dictionary",
-					name = "Dict",
-					score_offset = 20, -- the higher the number, the higher the priority
-					-- https://github.com/Kaiser-Yang/blink-cmp-dictionary/issues/2
-					enabled = true,
-					max_items = 8,
-					min_keyword_length = 3,
-					opts = {
-						-- -- The dictionary by default now uses fzf, make sure to have it
-						-- -- installed
-						-- -- https://github.com/Kaiser-Yang/blink-cmp-dictionary/issues/2
-						--
-						-- Do not specify a file, just the path, and in the path you need to
-						-- have your .txt files
-						dictionary_directories = { vim.fn.expand("~/github/dotfiles-latest/dictionaries") },
-						-- Notice I'm also adding the words I add to the spell dictionary
-						dictionary_files = {
-							vim.fn.expand("~/github/dotfiles-latest/neovim/neobean/spell/en.utf-8.add"),
-							vim.fn.expand("~/github/dotfiles-latest/neovim/neobean/spell/es.utf-8.add"),
-						},
-						-- --  NOTE: To disable the definitions uncomment this section below
-						--
-						-- separate_output = function(output)
-						--   local items = {}
-						--   for line in output:gmatch("[^\r\n]+") do
-						--     table.insert(items, {
-						--       label = line,
-						--       insert_text = line,
-						--       documentation = nil,
-						--     })
-						--   end
-						--   return items
-						-- end,
-					},
 				},
 				-- Third class citizen mf always talking shit
 				-- copilot = {

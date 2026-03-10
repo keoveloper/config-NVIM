@@ -13,8 +13,9 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<Leader>q", ":quit<Return>", opts)
 
 -- Disable continuations
-keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
-keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
+-- keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
+--
+-- keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
@@ -43,13 +44,12 @@ keymap.set("i", "<C-h>", "<C-o>db", opts)
 keymap.set("i", "<C-l>", "<C-o>dw", opts)
 
 -- Insertar un renglón abajo y volver
-keymap.set("i", "<C-j>", "<Esc>o", opts)
+keymap.set("i", "<C-o>", "<Esc>o", opts)
 
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
-	vim.diagnostic.goto_next()
-end, opts)
-
+vim.keymap.set("n", "<C-j>", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Next diagnostic" })
 --======= save and run code (need RunCode plugin) ==========
 keymap.set("i", "<C-r>", "<Esc>:w<CR>:RunCode<CR>a", opts) --
-keymap.set("n", "<C-r>", "<Esc>:w<CR>:RunCode<CR>a", opts) --
+-- keymap.set("n", "<C-r>", "<Esc>:w<CR>:RunCode<CR>a", opts) --

@@ -131,8 +131,6 @@ return {
 			ls.add_snippets("all", video_md_snippets)
 			ls.add_snippets("all", video_md_snippets_ext)
 			ls.add_snippets("all", video_snippets_embed)
-		else
-			vim.notify("YouTube snippets file not found, skipping loading.", vim.log.levels.INFO)
 		end
 		-- Custom snippets
 		-- the "all" after ls.add_snippets("all" is the filetype, you can know a
