@@ -9,7 +9,7 @@ This is a **LazyVim-based Neovim configuration**. It uses `lazy.nvim` for plugin
 ## Architecture
 
 - **`init.lua`** — Entry point. Sets up `vim.loader`, a global debug helper (`_G.dd`), loads `config.lazy`, and configures `code_runner.nvim` executors (Java, Python, TypeScript/Deno, Rust, C).
-- **`lua/config/lazy.lua`** — Bootstraps `lazy.nvim`, imports LazyVim base + extras, and defines standalone plugins (mcphub, rest.nvim, emmet, copilot, code_runner, etc.). LazyVim extras for specific languages/tools are imported here AND in `lazyvim.json`.
+- **`lua/config/lazy.lua`** — Bootstraps `lazy.nvim`, imports LazyVim base + extras, and defines standalone plugins (rest.nvim, emmet, copilot, code_runner, etc.). LazyVim extras for specific languages/tools are imported here AND in `lazyvim.json`.
 - **`lua/config/options.lua`** — Editor options. Leader is `<Space>`, 2-space indentation, shell is `zsh`. Defines custom filetypes (`.astro` → astro, `Podfile` → ruby).
 - **`lua/config/keymaps.lua`** — Custom keybindings (splits, tabs, insert-mode shortcuts like `jk` to exit, REST runner, diagnostics nav).
 - **`lua/config/autocmds.lua`** — Auto-commands (paste mode off on InsertLeave, conceallevel=0 for json/markdown).
